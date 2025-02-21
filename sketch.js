@@ -12,8 +12,8 @@ function preload(){
 
 //Função para definir o ambiente inicial
 function setup() {
+//chame o database
 
-   database=firebase.database();
 
   createCanvas(1500,700);
 
@@ -21,8 +21,9 @@ function setup() {
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
 
-  var balloonHeight=database.ref('balloon/height');
-  balloonHeight.on("value",readHeight, showError);
+  //passe a referencia 
+  var balloonHeight=database.ref('');
+ //chame o .on
 
 
 
@@ -60,34 +61,15 @@ function draw() {
 }
 
  function updateHeight(x,y){
-   database.ref('balloon/height').set({
-     'x': height.x + x ,
-     'y': height.y + y
-   })
+   //construa a função update
  }
 
 
-//ESCOLHA A FUNÇÃO DE READHEIGHT CORRETA
-// function readHeight(data){
-//   balloon.x = height.x;
-//   balloon.y = height.y;
-// }
+//E FAÇA A FUNÇÃO DE READHEIGHT 
+ function readHeight(data){
+    
+ }
 
-// function readHeight(data){
-//   height = data.val();
-//   balloon.x = height.x;
-//   balloon.y = height.y;
-// }
-
-// function readHeight(data){
-//   height = data.val();
-// }
-
-// function readHeight(){
-//   height = val();
-//   balloon.x = height.x;
-//   balloon.y = height.y;
-// }
 
 function showError(){
   console.log("Erro ao escrever no banco de dados");
