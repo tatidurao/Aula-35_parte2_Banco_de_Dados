@@ -22,7 +22,7 @@ function setup() {
   balloon.scale=0.5;
 
   //passe a referencia 
-  var balloonHeight=database.ref('');
+  //var balloonHeight=database.ref('');
  //chame o .on
 
 
